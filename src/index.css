@@ -1,0 +1,287 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Romantic Design System for "Still Us" */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Romantic Pastel Color Palette */
+    --background: 344 100% 97%;
+    --foreground: 343 40% 25%;
+
+    --card: 344 60% 96%;
+    --card-foreground: 343 40% 25%;
+
+    --popover: 344 100% 97%;
+    --popover-foreground: 343 40% 25%;
+
+    /* Romantic Pink Primary */
+    --primary: 340 82% 52%;
+    --primary-foreground: 344 100% 97%;
+    --primary-soft: 340 60% 85%;
+    --primary-light: 340 100% 95%;
+
+    /* Soft Lavender Secondary */
+    --secondary: 280 40% 88%;
+    --secondary-foreground: 280 30% 30%;
+
+    /* Warm Beige Muted */
+    --muted: 30 40% 92%;
+    --muted-foreground: 30 20% 50%;
+
+    /* Soft Peach Accent */
+    --accent: 20 60% 88%;
+    --accent-foreground: 20 40% 30%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 340 30% 90%;
+    --input: 340 30% 90%;
+    --ring: 340 82% 52%;
+
+    /* Romantic Gradients */
+    --gradient-romantic: linear-gradient(135deg, hsl(340 82% 52%) 0%, hsl(280 40% 88%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(344 100% 97%) 0%, hsl(340 100% 95%) 100%);
+    --gradient-sunset: linear-gradient(135deg, hsl(20 60% 88%) 0%, hsl(340 60% 85%) 100%);
+    --gradient-love: linear-gradient(45deg, hsl(340 82% 52%) 0%, hsl(280 40% 88%) 50%, hsl(20 60% 88%) 100%);
+
+    /* Heart Animation Colors */
+    --heart-primary: 340 82% 52%;
+    --heart-secondary: 280 40% 88%;
+    --heart-accent: 20 60% 88%;
+
+    /* Shadows */
+    --shadow-romantic: 0 10px 30px -10px hsl(340 82% 52% / 0.2);
+    --shadow-soft: 0 4px 20px hsl(340 60% 85% / 0.3);
+    --shadow-glow: 0 0 40px hsl(340 82% 52% / 0.3);
+
+    /* Typography */
+    --font-romantic: 'Dancing Script', cursive;
+    --font-body: 'Poppins', sans-serif;
+
+    /* Animations */
+    --transition-romantic: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-soft: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-[var(--font-body)];
+  }
+
+  .font-romantic {
+    font-family: var(--font-romantic);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+}
+
+@layer components {
+  /* Heart Animation */
+  .floating-heart {
+    @apply absolute text-primary opacity-70;
+    animation: float-heart 6s ease-in-out infinite;
+  }
+
+  .heart-particle {
+    @apply absolute text-xs opacity-60;
+    animation: particle-rise 4s ease-out infinite;
+  }
+
+  /* Romantic Button Styles */
+  .btn-romantic {
+    @apply bg-[var(--gradient-romantic)] text-primary-foreground px-8 py-3 rounded-full font-medium shadow-[var(--shadow-romantic)] hover:shadow-[var(--shadow-glow)] transition-[var(--transition-romantic)] hover:scale-105;
+  }
+
+  .btn-soft {
+    @apply bg-secondary/30 backdrop-blur-sm text-secondary-foreground px-6 py-2 rounded-full border border-secondary/50 hover:bg-secondary/50 transition-[var(--transition-soft)];
+  }
+
+  /* Text Animations */
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .typewriter {
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--primary));
+    animation: typewriter 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  /* Gradient Text */
+  .text-gradient {
+    background: var(--gradient-romantic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Soft Card */
+  .card-romantic {
+    @apply bg-card/80 backdrop-blur-sm rounded-2xl p-6 shadow-[var(--shadow-soft)] border border-border/50;
+  }
+}
+
+@layer utilities {
+  /* Animation Keyframes */
+  @keyframes float-heart {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg);
+      opacity: 0.7;
+    }
+    25% {
+      transform: translateY(-20px) rotate(5deg);
+      opacity: 1;
+    }
+    50% { 
+      transform: translateY(-10px) rotate(-3deg);
+      opacity: 0.8;
+    }
+    75% {
+      transform: translateY(-25px) rotate(2deg);
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes particle-rise {
+    0% {
+      transform: translateY(0px) scale(1);
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px) scale(0.5);
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: hsl(var(--primary)); }
+  }
+
+  @keyframes pulse-heart {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  /* Gradient Backgrounds */
+  .bg-gradient-romantic {
+    background: var(--gradient-romantic);
+  }
+
+  .bg-gradient-soft {
+    background: var(--gradient-soft);
+  }
+
+  .bg-gradient-sunset {
+    background: var(--gradient-sunset);
+  }
+
+  .bg-gradient-love {
+    background: var(--gradient-love);
+  }
+
+  /* Animation Classes */
+  .animate-float-heart {
+    animation: float-heart 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-heart {
+    animation: pulse-heart 2s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  /* Delays for staggered animations */
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-500 { animation-delay: 0.5s; }
+  .delay-700 { animation-delay: 0.7s; }
+  .delay-1000 { animation-delay: 1s; }
+}
